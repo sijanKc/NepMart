@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, ShoppingCart, User, Menu } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Search, ShoppingCart, Menu } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Header = () => {
@@ -7,12 +7,12 @@ const Header = () => {
         <header className="sticky top-0 z-50 glass-morphism shadow-sm">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
+                <Link to="/" className="flex items-center gap-2">
                     <img src={logo} alt="Nepmart" className="h-10 w-auto" />
                     <span className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent hidden md:block">
                         Nepmart
                     </span>
-                </div>
+                </Link>
 
                 {/* Search Bar */}
                 <div className="flex-1 max-w-xl mx-8 hidden md:block">
@@ -35,12 +35,14 @@ const Header = () => {
                         </span>
                     </button>
 
-                    <button className="flex items-center gap-2 p-1 pl-3 pr-1 rounded-full border border-gray-200 hover:shadow-md transition-all duration-300">
-                        <User className="text-gray-700" size={24} />
-                        <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
-                            U
-                        </div>
-                    </button>
+                    <div className="hidden md:flex items-center gap-4">
+                        <Link to="/login" className="text-sm font-bold text-gray-700 hover:text-primary transition-colors">
+                            Sign In
+                        </Link>
+                        <Link to="/signup" className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                            Join Now
+                        </Link>
+                    </div>
 
                     <button className="md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors">
                         <Menu size={24} />
